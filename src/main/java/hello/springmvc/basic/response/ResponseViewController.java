@@ -9,16 +9,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class ResponseViewController {
 
     @RequestMapping("/response-view-v1")
-    public ModelAndView responseViewV1() {
-        ModelAndView mav = new ModelAndView("response/hello")
-                .addObject("data", "hello!");
-
+    public ModelAndView responseViewV1(){
+        ModelAndView mav = new ModelAndView("response/hello");
+        mav.addObject("data","hello!");
         return mav;
     }
 
     @RequestMapping("/response-view-v2")
     public String responseViewV2(Model model){
-        model.addAttribute("hello!");
+        model.addAttribute("data", "hello!");
         return "response/hello";
     }
 }
